@@ -6,4 +6,3 @@ App.View.Filter.Students = {};
 App.View.Panels.Students = {};
 App.Collection.Students = {};
 App.Static.Collection.Students = {};
-App.Static.Collection.Students.vehicle = {};
