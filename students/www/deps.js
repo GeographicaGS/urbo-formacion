@@ -41,7 +41,6 @@ deps.JS = [
   srcJS + 'View/Map/Students/Layer/ResidencesLayer.js',
   srcJS + 'View/Panels/Students/StudentsMasterPanelView.js',
   srcJS + 'View/Panels/Students/StudentsCurrentPanelView.js',
-  srcJS + 'View/Panels/Students/StudentsHistoricPanelView.js',
   srcJS + 'View/widgets/Students/POIsByType.js',
   srcJS + 'View/widgets/Students/POIsTable.js',
 ];

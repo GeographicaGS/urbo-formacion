@@ -14,10 +14,16 @@
     docker-compose run -v [RUTA]/urbo-formacion:[RUTA]/urbo-formacion -v [RUTA] -p 8085:80 --rm www > /dev/null &
     docker-compose run -v [RUTA]/urbo-formacion:[RUTA]/urbo-formacion -v --rm www_builder
     ```
-<h3> TODOS </h3>
+<h3> TODOs </h3>
 
-* [X] Documentar StudentsMasterPanelView:
-* [ ] Documentar StudentsCurrentPanelView
+* [X] Documentar StudentsMasterPanelView
+* [X] Documentar StudentsCurrentPanelView
+* [ ] Documentar widgets: POIsByType y POIsTable
+* [ ] Documentar PoiFilter
+* [ ] Documentar ResidenceMapView
+* [ ] Documentar ResidenceLayer
+* [ ] Documentar Students
+* [ ] Modificar vertical para integrarlo con BACK para formación
 
 
 
