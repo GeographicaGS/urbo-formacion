@@ -1,0 +1,28 @@
+<div class='<%=className%>'>
+    <h3><%=__('Ajustes')%></h3>
+    <div class="list_elements">
+      <div class="element">
+        <div class="header">
+          <span class="title">
+            <img class="icon" src="/verticals/students/img/pois.svg" alt="icon">
+            <%=__('Points of Interest')%>
+          </span>
+        </div>
+        <div class="content">
+          <div class="multiselector active">
+            <ul class="legendInline statusesTypes">
+              <%_.each(status,function(t){
+                var checkIds = m.status;
+                var selected = _.find(checkIds, function(d) { return d === t.id });
+                %>
+                <li data-id='<%= t.id%>' <%= selected ? 'selected' : '' %> class="<%= selected ? '' : 'disabled' %> <%= t.id %>">
+                  <%= t.name %>
+                  <span class="total">-</span>
+                </li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+  
