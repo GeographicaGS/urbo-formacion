@@ -18,7 +18,7 @@
 
 * [X] Documentar StudentsMasterPanelView
 * [X] Documentar StudentsCurrentPanelView
-* [ ] Documentar widgets: POIsByType y POIsTable
+* [X] Documentar widgets: POIsByType y POIsTable
 * [ ] Documentar PoiFilter
 * [ ] Documentar ResidenceMapView
 * [ ] Documentar ResidenceLayer
