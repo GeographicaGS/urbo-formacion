@@ -20,7 +20,7 @@
 * [X] Documentar StudentsCurrentPanelView
 * [X] Documentar widgets: POIsByType y POIsTable
 * [X] Documentar PoiFilter
-* [ ] Documentar ResidenceMapView
+* [X] Documentar ResidenceMapView
 * [ ] Documentar ResidenceLayer
 * [ ] Documentar Students
 * [ ] Modificar vertical para integrarlo con BACK para formación
