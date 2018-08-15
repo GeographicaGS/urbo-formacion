@@ -19,11 +19,13 @@
 * [X] Documentar StudentsMasterPanelView
 * [X] Documentar StudentsCurrentPanelView
 * [X] Documentar widgets: POIsByType y POIsTable
-* [ ] Documentar PoiFilter
+* [X] Documentar PoiFilter
 * [ ] Documentar ResidenceMapView
 * [ ] Documentar ResidenceLayer
 * [ ] Documentar Students
 * [ ] Modificar vertical para integrarlo con BACK para formación
+* [ ] Crear un nuevo widget que use agregados
+* [ ] Habilitar el filtro/leyenda para POIS
 
 
 
