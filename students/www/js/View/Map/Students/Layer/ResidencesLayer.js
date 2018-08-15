@@ -1,6 +1,9 @@
 'use strict';
 
 App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
+  /**
+   * 1. Definimos los templates de las SQL
+   */
   _sql_template: _.template( $("#Students-maps-students_sql_template").html() ),
   _sql_pois_template: _.template( $("#Students-maps-students_pois_sql_template").html() ),
 
@@ -18,6 +21,9 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
 
     var _this = this;
 
+    /**
+     * 2. Precargamos las SQL con los datos por defecto
+     */
     var sql_template = this._sql_template({
       scope: App.currentScope,
       variable: '10',
@@ -27,8 +33,13 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
       coord: [],
     });
 
+
+    /**
+     * 3. Definimos los Models que se encargarán de solicitar a la Maps API los MVT
+     *    La documentación puede consultarse en: https://carto.com/docs/carto-engine/maps-api
+     */
     this.model = new App.Model.TilesModel({
-      url: 'https://' + 'cedus-admin' + '.carto.com/api/v1/map',
+      url: 'https://' + App.Utils.getCartoAccount('students') + '.carto.com/api/v1/map',
       params: {
         layers:[ {
           id: 'cartoLayer',
@@ -40,7 +51,7 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
     });
 
     this.poisModel = new App.Model.TilesModel({
-      url: 'https://' + 'cedus-admin' + '.carto.com/api/v1/map',
+      url: 'https://' + App.Utils.getCartoAccount('students') + '.carto.com/api/v1/map',
       params: {
         layers:[ {
           id: 'cartoLayer',
@@ -51,11 +62,22 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
       }
     });
 
+    /**
+     * 4. Creamos un modelo tipo Function, lo que hace es en lugar de hacer la petición a una API,
+     *    ejecuta localmente una función. En este caso ejecutará la función turf.circle
+     */
     this.turfModel = new App.Model.FunctionModel({
       function: turf.circle,
       params: [[0,0],1]
     });
 
+
+    /**
+     * 5. Creamos una layer GeoJSON, recibe como source el modelo 'turfModel'.
+     *    Por defecto está filtrada (escondida) se muestra el area al pulsar sobre una residencia.
+     *    En la propiedad layers se pueden definir N layers que utilicen el mismo source y todo siguiendo
+     *    la documentación oficial de Mapbox GL JS.
+     */
     this.turfLayer = new App.View.Map.Layer.MapboxGeoJSONLayer({
       source: {
         id: 'turfSource',        
@@ -88,6 +110,15 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
       map: map,
     });
 
+    /**
+     * 7. Definimos las layers que de tipo MapboxSQLLayer, al igual que la anterior
+     *    recibe como parametro el modelo que utilizará.
+     *    
+     *    Se llama a la función setHoverable(true) para que el cursor al pasar por encima 
+     *    un elemento de la capa cambie a 'pointer'.
+     * 
+     *    Por último se llama a setPopup para añadir popups a estas capas.
+     */
     this.layer = new App.View.Map.Layer.MapboxSQLLayer({
       source: {
         id: 'cartoSource',        
@@ -110,6 +141,15 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
       map: map
     })
     .setHoverable(true)
+    /**
+     * 8. Esta función como último parámetro recibe una función o
+     *    un array con cada una de las rows que se van a pintar en el popup.
+     *    Estas rows son un objeto del siguiente tipo:
+     *      - output: Template a utilizar para la fila, hay algunas definidas previamente
+     *          pero pueden definirse nuevas.
+     *      - properties: Array con las properties a pintar, esto dependerá de la plantilla
+     *          que se utlice.
+     */
     .setPopup('with-extended-title', __('Residence'), function(e, popup) {
         _this.clicked = e;
         _this.popup = popup;
@@ -188,6 +228,11 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
   onClose: function() {
   },
 
+  /**
+   * 9. Esta función se llama al modificarse algun filtro.
+   *    En este caso solo se actualizará si se ha cambiado la residencia.
+   *    
+   */
   updateSQL: function(filter) {
     filter = filter.toJSON();
     this.variable = filter.variable;
@@ -206,6 +251,11 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
     }
   },
 
+  /**
+   * 10.  Al pulsar sobre una residencia se actualizan los filtros de las capas para 
+   *      causar el efecto de "selección" y además se actualiza el modelo de la capa de 
+   *      POIs para que se calculen los datos de POIs cercanos a la residence seleccionada.
+   */
   _clickPoint: function(e) {
     this.popup.remove();    
     var residenceId = parseInt(e.currentTarget.getAttribute('data-entity-id'));

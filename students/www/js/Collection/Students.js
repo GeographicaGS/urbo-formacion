@@ -24,6 +24,9 @@
 // provided in both Spanish and international law. Telefónica Digital reserves any civil or
 // criminal actions it may exercise to protect its rights.
 
+/**
+ * 1. Lista de paneles, para el selector de paneles.
+ */
 App.Collection.Students.PanelList = Backbone.Collection.extend({
   initialize: function(models,options) {
     var base = '/' + options.scopeModel.get('id') + '/' + options.id_category;
@@ -42,15 +45,10 @@ App.Collection.Students.PanelList = Backbone.Collection.extend({
     this.set(_verticalOptions);    
   }
 });
-App.Utils.Students.calculatedValue = function(realValue,c) {
-  return Math.pow((1/100)*realValue, c) * 100;
-},
 
-App.Static.Collection.Students.ResidencesType =  new Backbone.Collection([
-  {id: 'private', name: 'Private', color: '#FBCF99'},
-  {id: 'public', name: 'Public', color: '#F7A034'}
-]);
-
+/**
+ * 2. Tipos de POIs, con sus id, sus nombres, colores e iconos.
+ */
 App.Static.Collection.Students.POIsTypes =  new Backbone.Collection([
   {id: 'pois', name: 'Points of Interest', color: '#58BC8F', icon: '/verticals/students/img/pois_negative.svg'},  
   {id: '107', name: 'Landmarks', color: '#DB6CA2', icon: '/verticals/students/img/historic-shop-white.svg'},
