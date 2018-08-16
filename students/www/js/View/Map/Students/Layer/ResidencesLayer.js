@@ -31,6 +31,7 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
     var sql_pois_template = this._sql_pois_template({
       scope: App.currentScope,
       coord: [],
+      categories: null
     });
 
 
@@ -241,7 +242,12 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
       var kilometers = this.variable;
       var coord = this.clicked.features[0].properties.coord;
       
-      var sql_pois_template = this._sql_pois_template({scope: App.currentScope, coord: coord, variable: kilometers});
+      var sql_pois_template = this._sql_pois_template({
+        scope: App.currentScope,
+        coord: coord,
+        variable: kilometers,
+        categories: this.map.filterModel.get('status')
+      });
       this.turfLayer.updateData({params:[coord,kilometers,{units:'kilometers'}]});
       this.poisLayer._updateSQLData(sql_pois_template, 'cartoPoisLayer');
 
@@ -270,8 +276,12 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
     this.map._map.setFilter("pois", ["all", true]);
     
     this.map.mapChanges.set('clickedResidence',this.clicked);
-    
-    var sql_pois_template = this._sql_pois_template({scope: App.currentScope, coord: coord, variable: kilometers});
+    var sql_pois_template = this._sql_pois_template({
+      scope: App.currentScope,
+      coord: coord,
+      variable: kilometers,
+      categories: this.map.filterModel.get('status')
+    });
     this.turfLayer.updateData({params:[coord,kilometers,{units:'kilometers'}]});
     this.poisLayer._updateSQLData(sql_pois_template, 'cartoPoisLayer');
 

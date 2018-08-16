@@ -12,6 +12,7 @@ App.View.Filter.Students.PoiMapFilter = App.View.Filter.Base.extend({
   events: {
     'click h3' : '_toggleFilter',
     'click .toggler': '_toggleMultiselector',
+    'click .statusesTypes li[data-id]' : '_onClickType'    
   },
 
   initialize: function(options) {
