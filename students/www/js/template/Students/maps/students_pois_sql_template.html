@@ -1,0 +1,17 @@
+SELECT 
+  lastdata.the_geom as the_geom,
+  ST_AsGeoJSON(lastdata.the_geom) as coord,  
+  lastdata.the_geom_webmercator as the_geom_webmercator,
+  lastdata.name::text as name,
+  lastdata.updated_at::text as updated_at,
+  lastdata.id_entity as id_entity,
+  lastdata.category[1] as category
+FROM <%= scope %>_students_pointofinterest_lastdata lastdata
+WHERE 
+'29' != ANY(lastdata.category)
+<% if(coord && coord.length === 2) { %>
+  AND ST_Distance_Sphere(the_geom, ST_MakePoint(<%= coord[0] %>, <%= coord[1] %>)) <= <%= variable %> * 1000.0
+<% } else {%>
+  AND FALSE
+<% }%>
+  

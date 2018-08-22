@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/leyenda/pois/itinerary-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons/leyenda/pois/itinerary-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2,10 L11.286,10 C12.232,10 13,9.327986 13,8.50021875 C13,7.67157649 12.232,6.99956249 11.286,6.99956249 L5,6.99956249 C4.053,6.99956249 3.285,6.32842351 3.285,5.49978125 C3.285,4.67113898 4.053,4 5,4 L10.142,4" id="Stroke-1" stroke="#FFFFFF"></path>
+        <circle id="Oval-19" fill="#FFFFFF" cx="2" cy="10" r="1"></circle>
+        <circle id="Oval-19-Copy-2" fill="#FFFFFF" cx="11" cy="10" r="1"></circle>
+        <circle id="Oval-19-Copy-3" fill="#FFFFFF" cx="5" cy="7" r="1"></circle>
+        <circle id="Oval-19-Copy" fill="#FFFFFF" cx="10" cy="4" r="1"></circle>
+    </g>
+</svg>

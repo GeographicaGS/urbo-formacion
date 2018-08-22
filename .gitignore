@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Visual Studio Code config
 .vscode
 
@@ -47,3 +48,4 @@ db/migrations/*
 config.dev.yml
 config.prod.yml
 deploy.sh
+**/.DS_Store

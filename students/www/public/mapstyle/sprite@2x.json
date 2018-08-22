@@ -1,0 +1,79 @@
+{
+  "cines-desact": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 0,
+    "y": 0
+  },
+  "historic-shops": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 52,
+    "y": 0
+  },
+  "hostel": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 0,
+    "y": 52
+  },
+  "itinerary": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 52,
+    "y": 52
+  },
+  "librerias-desact": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 104,
+    "y": 0
+  },
+  "museo": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 156,
+    "y": 0
+  },
+  "museo-desact": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 104,
+    "y": 52
+  },
+  "patrimonio-desact": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 156,
+    "y": 52
+  },
+  "protected-areas": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 0,
+    "y": 104
+  },
+  "residence": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 52,
+    "y": 104
+  },
+  "teatro-desact": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 52,
+    "x": 104,
+    "y": 104
+  }
+}
