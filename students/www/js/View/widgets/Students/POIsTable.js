@@ -58,7 +58,7 @@ App.View.Widgets.Students.POIsTable =  App.View.Widgets.Base.extend({
       type: 'now',
       entity: 'students.pointofinterest',
       data: {
-        filters: options.filterModel
+        filters: options.newFilterModel
       }
     });
     
@@ -67,15 +67,14 @@ App.View.Widgets.Students.POIsTable =  App.View.Widgets.Base.extend({
         return response;
       }
       return _.map(_.filter(response.features, function(feature) {
-          return feature.properties.category[0] !== '29';
+          return feature.properties.category !== 29;
         }), function(r) {
           r.name = r.properties.name;
           r.category = r.properties.category;
           r.distance = r.geometry;
-          if (r.category[0] === '188' || r.category[0] === '111') {
-            r.category[0] = '371';
+          if (r.category === 188 || r.category === 111) {
+            r.category = 371;
           }
-          r.category = r.category[0];
           return r;
       }) || [];
     }
@@ -91,7 +90,7 @@ App.View.Widgets.Students.POIsTable =  App.View.Widgets.Base.extend({
   },
 
   render: function() {
-    if (this.options.filterModel && this.options.filterModel.get('the_geom')) {
+    if (this.options.newFilterModel && this.options.newFilterModel.get('the_geom')) {
       App.View.Widgets.Base.prototype.render.call(this);
     }
     return this;
@@ -102,7 +101,7 @@ App.View.Widgets.Students.POIsTable =  App.View.Widgets.Base.extend({
    *    de un punto a otro.
    */
   _calculeDistance: function(d) {
-    return App.nbf(turf.distance(d, this.options.filterModel.clicked.properties.coord)) + " Km.";
+    return App.nbf(turf.distance(d, this.options.newFilterModel.clicked.properties.coord)) + " Km.";
   }
 
 });

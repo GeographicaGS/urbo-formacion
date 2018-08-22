@@ -12,6 +12,7 @@ App.View.Filter.Students.PoiMapFilter = App.View.Filter.Base.extend({
   events: {
     'click h3' : '_toggleFilter',
     'click .toggler': '_toggleMultiselector',
+    'click .statusesTypes li[data-id]' : '_onClickType'    
   },
 
   initialize: function(options) {
@@ -29,7 +30,7 @@ App.View.Filter.Students.PoiMapFilter = App.View.Filter.Base.extend({
     this.$el.html(this._template({
       m: this.model.toJSON(),
       status: _.filter(App.Static.Collection.Students.POIsTypes.toJSON(), function(poi) {
-        return poi.id !== 'pois' && poi.id !== '29';
+        return poi.id !== 'pois' && poi.id !== 29;
       }),
       className: 'issues'
     }));
@@ -79,7 +80,7 @@ App.View.Filter.Students.PoiMapFilter = App.View.Filter.Base.extend({
       success: function(ranges) {
         $('.statusesTypes li[data-id] .total').html('-');
         ranges.each(function(range) {
-          var status = App.Static.Collection.Students.POIsTypes.get(range.get('name')[0].toString());
+          var status = App.Static.Collection.Students.POIsTypes.get(range.get('name').toString());
           $('.statusesTypes li[data-id="' + status.get('id') + '"] .total').html(range.get('value'))
         });
       }
@@ -107,5 +108,9 @@ App.View.Filter.Students.PoiMapFilter = App.View.Filter.Base.extend({
       return $(c).attr('data-id');
     });
     this.model.set('status',ids);
+    this.model.set('condition',
+      {
+        'category__in': ids
+      });
   },
 });

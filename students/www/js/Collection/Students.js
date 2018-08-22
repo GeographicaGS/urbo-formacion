@@ -51,10 +51,10 @@ App.Collection.Students.PanelList = Backbone.Collection.extend({
  */
 App.Static.Collection.Students.POIsTypes =  new Backbone.Collection([
   {id: 'pois', name: 'Points of Interest', color: '#58BC8F', icon: '/verticals/students/img/pois_negative.svg'},  
-  {id: '107', name: 'Landmarks', color: '#DB6CA2', icon: '/verticals/students/img/historic-shop-white.svg'},
-  {id: '29', name: 'Colleges and Universities', color: '#ACB35D', icon: '/verticals/students/img/reserved-white.svg'},  
-  {id: '311', name: 'Museums', color: '#857DC9', icon: '/verticals/students/img/museo-white.svg'},
-  {id: '371', name: 'Protected Area', color: '#98C16C', icon: '/verticals/students/img/reserved-white.svg'},
-  {id: '420', name: 'Itinerary', color: '#3081C9', icon: '/verticals/students/img/itinerary-white.svg'},
-  {id: '435', name: 'Hostels', color: '#E16464', icon: '/verticals/students/img/hostel-white.svg'},
+  {id: 107, name: 'Landmarks', color: '#DB6CA2', icon: '/verticals/students/img/historic-shop-white.svg'},
+  {id: 29, name: 'Colleges and Universities', color: '#ACB35D', icon: '/verticals/students/img/reserved-white.svg'},  
+  {id: 311, name: 'Museums', color: '#857DC9', icon: '/verticals/students/img/museo-white.svg'},
+  {id: 371, name: 'Protected Area', color: '#98C16C', icon: '/verticals/students/img/reserved-white.svg'},
+  {id: 420, name: 'Itinerary', color: '#3081C9', icon: '/verticals/students/img/itinerary-white.svg'},
+  {id: 435, name: 'Hostels', color: '#E16464', icon: '/verticals/students/img/hostel-white.svg'},
 ]);

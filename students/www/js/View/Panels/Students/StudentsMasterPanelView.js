@@ -15,6 +15,7 @@ App.View.Panels.Students.Master = App.View.Panels.Base.extend({
    *  - master: <Deprecated> se utllizaba para indicar si era o no un panel maestro, en estos momentos no hace nada.
    *  - title: Título del panel
    *  - id_panel: Identificado único (en el vertical) del panel. Se utiliza para 'marcar' como seleccionado el panel en el selector de paneles superior.
+   *  - framesList: Indica si en esta pantalla se van pintar/crear frames.
    * 
    * Después se llama al initialize del padre, que añade en caso necesario otras tantas configuraciones por defecto.
    * Por último se llama al render del panel. La función render no suele ser necesario sobreescribirla, el render de App.View.Panels.Base termina llamando
@@ -28,6 +29,8 @@ App.View.Panels.Students.Master = App.View.Panels.Base.extend({
       master: false,
       title: __('Estado general'),
       id_panel: 'master',
+      // **** TODO: Uncomment next line ****
+      // framesList: true 
     });
     App.View.Panels.Base.prototype.initialize.call(this, options);
 

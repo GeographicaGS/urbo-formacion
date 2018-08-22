@@ -7,4 +7,4 @@ SELECT
   lastdata.id_entity as id_entity
 FROM <%= scope %>_students_pointofinterest_lastdata lastdata
 WHERE TRUE
-AND '29' = ANY(lastdata.category)
+AND lastdata.category = 29

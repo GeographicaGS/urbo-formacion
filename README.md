@@ -23,9 +23,10 @@
 * [X] Documentar ResidenceMapView
 * [X] Documentar ResidenceLayer
 * [X] Documentar Students
-* [ ] Modificar vertical para integrarlo con BACK para formación
+* [X] Preparar Frames
+* [X] Modificar vertical para integrarlo con BACK para formación
 * [ ] Crear un nuevo widget que use agregados
-* [ ] Habilitar el filtro/leyenda para POIS
+* [X] Habilitar el filtro/leyenda para POIS
 
 
 

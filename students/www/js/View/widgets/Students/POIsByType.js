@@ -76,13 +76,13 @@ App.View.Widgets.Students.POIsByType = App.View.Widgets.Base.extend({
         {
           key:"pois",
           values: _.filter(_.map(response, function(r) {
-              if (r.category[0] === '188' || r.category[0] === '111') {
-                r.category[0] = '371';
+              if (r.category === 188 || r.category === 111) {
+                r.category = 371;
               }
 
-              return {x: r.category[0], y: r.value}
+              return {x: r.category, y: r.value}
             }), function(poi) {
-              return poi.x !== '29';
+              return poi.x !== 29;
             })
         }
       ];
