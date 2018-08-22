@@ -5,12 +5,12 @@ SELECT
   lastdata.name::text as name,
   lastdata.updated_at::text as updated_at,
   lastdata.id_entity as id_entity,
-  lastdata.category[1] as category
+  lastdata.category as category
 FROM <%= scope %>_students_pointofinterest_lastdata lastdata
 WHERE 
-'29' != ANY(lastdata.category)
+29 != lastdata.category
 <% if(categories && categories.length > 0) { %>
-  AND lastdata.category[1] in (<%= _.map(categories, function(c) { return "'" + c + "'"}) %>)
+  AND lastdata.category in (<%= _.filter(categories, function(c) { return c !== 'pois' }) %>)
 <% } %>
 <% if(coord && coord.length === 2) { %>
   AND ST_Distance_Sphere(the_geom, ST_MakePoint(<%= coord[0] %>, <%= coord[1] %>)) <= <%= variable %> * 1000.0

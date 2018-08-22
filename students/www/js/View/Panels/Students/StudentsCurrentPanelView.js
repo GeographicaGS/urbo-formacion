@@ -33,7 +33,7 @@ App.View.Panels.Students.Current = App.View.Panels.Splitted.extend({
      *    En este caso el único valor dinámico será 'variable', que hace referencia al radio.
      */
     this.filterModel = new Backbone.Model({
-      variable: '10',
+      variable: '50',
       status: App.Static.Collection.Students.POIsTypes.pluck('id'),
       condition: {} // Will be empty, is needed for map's endpoint
     });
@@ -188,7 +188,7 @@ App.View.Panels.Students.Current = App.View.Panels.Splitted.extend({
     
     this.poisByType = new App.View.Widgets.Students.POIsByType({
       id_scope: this.scopeModel.get('id'),
-      filterModel: this.filterModel,
+      newFilterModel: this.filterModel,
       timeMode:'now',
     });
 
@@ -196,7 +196,7 @@ App.View.Panels.Students.Current = App.View.Panels.Splitted.extend({
     
     this.poisTable = new App.View.Widgets.Students.POIsTable({
       id_scope: this.scopeModel.get('id'),
-      filterModel: this.filterModel,
+      newFilterModel: this.filterModel,
       timeMode:'now',
     });
     this._widgets.push(this.poisTable);

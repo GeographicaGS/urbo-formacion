@@ -196,11 +196,11 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
               'type': 'categorical',
               'default': 'transparent',
               'stops': [
-                ["107", 'historic-shops'],
-                ["311", 'museo'],
-                ["371", 'reserved'],
-                ["420", 'itinerary'],
-                ["435", 'hostel'],
+                [107, 'historic-shops'],
+                [311, 'museo'],
+                [371, 'reserved'],
+                [420, 'itinerary'],
+                [435, 'hostel'],
               ]
             },
             'icon-size': 0.8,
