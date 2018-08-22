@@ -42,16 +42,16 @@ BEGIN
 
         ', tb_students_name);
 
-        _sql = _sql || urbo_pk_qry(tb_names);
-        _sql = _sql || urbo_time_idx_qry(tb_names);
-        _sql = _sql || urbo_unique_lastdata_qry(tb_names);
-
         IF iscarto THEN
             _sql = _sql || urbo_cartodbfy_tables_qry(cartouser, tb_names);
         ELSE
+            _sql = _sql || urbo_pk_qry(tb_names);
             _sql = _sql || urbo_geom_idx_qry('position', tb_names);
             _sql = _sql || urbo_tbowner_qry(tb_names);
         END IF;
+
+        _sql = _sql || urbo_time_idx_qry(tb_names);
+        _sql = _sql || urbo_unique_lastdata_qry(tb_names);
 
 
         IF isdebug then
