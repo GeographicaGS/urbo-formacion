@@ -20,6 +20,7 @@ App.View.Widgets.Students.POIsByType = App.View.Widgets.Base.extend({
       refreshTime : 80000,
       publishable: true,
       classname: 'App.View.Widgets.Students.POIsByType',
+      dimension: 'double',
       permissions: {'variables': ['students.pointofinterest.category']}
     });
 

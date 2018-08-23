@@ -11,7 +11,7 @@ App.View.Widgets.Students.POIsTable =  App.View.Widgets.Base.extend({
       timeMode: 'historic',
       id_category: 'students',
       exportable: true,
-      dimension: 'double bgWhite allHeight',
+      dimension: 'allWidth bgWhite allHeight',
     });
     App.View.Widgets.Base.prototype.initialize.call(this,options);
 

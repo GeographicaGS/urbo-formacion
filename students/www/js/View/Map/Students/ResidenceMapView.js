@@ -26,9 +26,9 @@ App.View.Map.Students.Residences = App.View.Map.MapboxView.extend({
     this.variableSelector = new App.View.Map.VariableSelector({
       filterModel: this.filterModel,
       variables: [
-        {value: '10', name: __('10 Km')},
-        {value: '25', name: __('25 Km')},
-        {value: '50', name: __('50 Km'), byDefault: true},
+        {value: '1', name: __('1 Km')},
+        {value: '2', name: __('2 Km')},
+        {value: '10', name: __('10 Km'), byDefault: true},
       ]
     });
 
