@@ -16,6 +16,8 @@ BEGIN
   ',
     urbo_get_table_name(id_scope, 'students_distance_agg_day', iscarto));
 
+  EXECUTE _del_qry;
+
   _residences_qry = format('
     SELECT id_entity, position FROM %s WHERE category = 29;
   ', urbo_get_table_name(id_scope, 'students_pointofinterest_lastdata', iscarto));
