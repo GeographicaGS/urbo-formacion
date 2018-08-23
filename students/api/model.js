@@ -18,7 +18,7 @@ class StudentsModel extends PGSQLModel {
              avg_dist AS avg,
              max_dist AS max
       FROM ${ opts.scope }.students_distance_agg_day
-      WHERE id_entity LIKE '${ opts.id_entity }';
+      WHERE id_entity LIKE '${ opts.idEntity }';
     `;
 
     return this.query(sql)

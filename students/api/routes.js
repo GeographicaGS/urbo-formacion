@@ -20,14 +20,14 @@ router.post('/distances',
 
     var opts = {
       scope: req.scope,
-      idEntity: req.id_entity
+      idEntity: req.body.id_entity
     };
 
     var model = new StudentsModel();
 
     return model.getDistances(opts)
     .then(function(data) {
-      return res.json(dt);
+      return res.json(data);
     })
     .catch(function(err) {
       log.error(err);
