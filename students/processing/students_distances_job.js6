@@ -1,0 +1,71 @@
+'use strict';
+
+var appDir = require('app-root-path').path.replace(/\/bin$/, '');
+var ospath = require('path');
+
+var config = require(ospath.join(appDir, 'config'));
+var BaseJob = require(ospath.join(appDir, 'jobs', 'basejob'));
+var utils = require(ospath.join(appDir, 'utils'));
+var log = utils.log();
+
+var pgsqlConfig = config.getData().pgsql;
+
+class StudentsDistanceJob extends BaseJob {
+
+  constructor(cfg) {
+    super(cfg);
+  }
+
+  getCreateTable(data) {
+    var tableName = `${ data.dbschema }.${ this.tableName }`;
+
+    /*
+    * There are cases where residences are too far from other POIs,
+    * in those cases the distances will be NULL.
+    */
+    var sql = `
+      CREATE TABLE ${ tableName } (
+        id_entity   varchar not null,
+        min_dist    double precision,
+        avg_dist    double precision,
+        max_dist    double precision,
+        PRIMARY KEY(id_entity)
+      );
+
+      ALTER TABLE ${ tableName } OWNER TO ${ pgsqlConfig.user };
+      CREATE INDEX ${data.dbschema}_${this.tableName}_id_entity_ids ON ${ tableName }(id_entity);
+    `
+
+    return sql;
+  }
+
+  _aggregate(job, done) {
+    if (job.data.carto) {
+      job.data.title += " @ CARTO";
+
+    } else {
+      job.data.title += " @ PGSQL";
+    }
+
+    var jobInfo = `job ${ job.id }: type '${ job.type }' - title '${ job.data.title }'`;
+
+    var callback = function (err) {
+      if (err) {
+        log.error(`${ jobInfo } FAILED: Error executing query`);
+        return done(err);
+      }
+
+      log.debug(`${ jobInfo } DONE`);
+      return done();
+    };
+
+    var sql = `
+      SELECT urbo_students_calculate_distances('${ job.data.idScope }', FALSE);
+    `;
+
+    this.pgModel.query(sql, null, callback).bind(this);
+  }
+
+}
+
+module.exports = StudentsDistanceJob;
