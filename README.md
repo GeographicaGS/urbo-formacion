@@ -25,7 +25,7 @@
 * [X] Documentar Students
 * [X] Preparar Frames
 * [X] Modificar vertical para integrarlo con BACK para formación
-* [ ] Crear un nuevo widget que use agregados
+* [X] Crear un nuevo widget que use agregados
 * [X] Habilitar el filtro/leyenda para POIS
 
 
