@@ -13,7 +13,7 @@ var distancesValidator = function(req, next) {
   return next();
 };
 
-router.post('/:id_scope/distances',
+router.post('/distances',
   distancesValidator,
   responseValidator,
   function(req, res) {
