@@ -1,4 +1,4 @@
-## POST students/:id_scope/distances
+## POST /:id_scope/students/distances
 ### Params
 - `id_scope`: the scope's id
 - `id_entity`: the residence's id
