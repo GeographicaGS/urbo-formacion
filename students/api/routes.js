@@ -8,7 +8,7 @@ var responseValidator = utils.responseValidator;
 var log = utils.log();
 var MetadataInstanceModel = require('../../models/metadatainstancemodel');
 
-var distancesValidator = function(req, next) {
+var distancesValidator = function(req, res, next) {
   req.checkQuery('id_entity', 'Residence\'s id is required').notEmpty();
   return next();
 };
