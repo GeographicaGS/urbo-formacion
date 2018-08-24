@@ -19,7 +19,7 @@ App.View.Widgets.Students.DistanceToPOIS = App.View.Widgets.Base.extend({
     this._model.fetch = function(options) {
       options.type = 'POST';
       options.data = {
-        "id_entity": 'ResidenzeUniversitarie:MI041' //_this.options.id_entity
+        "id_entity": _this.options.id_entity
       };
       options.data = JSON.stringify(options.data);
 

@@ -176,8 +176,10 @@ App.View.Panels.Students.Current = App.View.Panels.Splitted.extend({
     this._mapView.mapChanges.set('the_geom', null);
     this.poisTable.close();
     this.poisByType.close();
+    this.distanceToPOIS.close();
     this.poisTable = null;
     this.poisByType = null;
+    this.distanceToPOIS = null;
   },
 
   /**
