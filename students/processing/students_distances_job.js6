@@ -63,7 +63,7 @@ class StudentsDistanceJob extends BaseJob {
       SELECT urbo_students_calculate_distances('${ job.data.idScope }', FALSE);
     `;
 
-    this.pgModel.query(sql, null, callback).bind(this);
+    this.pgModel.query(sql, null, callback);
   }
 
 }
