@@ -275,7 +275,6 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
     this.map._map.setFilter("residences", ["==", ["get", "id_entity"], id_entity]);
     this.map._map.setFilter("pois", ["all", true]);
     
-    this.map.mapChanges.set('clickedResidence',this.clicked);
     var sql_pois_template = this._sql_pois_template({
       scope: App.currentScope,
       coord: coord,
@@ -287,8 +286,10 @@ App.View.Map.Layer.Students.ResidencesLayer = Backbone.View.extend({
 
     var the_geom = this.map.variableSelector.options.filterModel.get('the_geom') || {};
     the_geom.ST_Intersects = this.turfModel.get('response').geometry;
+    
+    this.map.mapChanges.set('clickedResidence',this.clicked);
     this.map.variableSelector.options.filterModel.set('the_geom',the_geom);
-  },
+  },  
 
   _onBack: function(change) {
     if (!change.get('clickedResidence')) {

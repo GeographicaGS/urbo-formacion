@@ -59,7 +59,7 @@ App.View.Widgets.Students.POIsByType = App.View.Widgets.Base.extend({
       mode: this.options.timeMode,
       variable: 'students.pointofinterest.category',
       data: {
-        filters: options.filterModel,
+        filters: options.newFilterModel,
         ranges: 'all'
       }
     });
