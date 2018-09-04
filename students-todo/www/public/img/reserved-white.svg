@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/leyenda/pois/reserved-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons/leyenda/pois/reserved-white" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M4,14 L4,11.949 C2.859,11.718 2,10.71 2,9.5 L2,9 C2,7.619 3.119,0 4.5,0 C5.881,0 7,7.619 7,9 L7,9.5 C7,10.71 6.141,11.718 5,11.949 L5,14 L4,14 Z" id="Fill-1" fill="#FFFFFF"></path>
+        <path d="M10,14 L10,11.949 C8.859,11.718 8,10.71 8,9.5 L8,9 C8,7.619 9.119,5 10.5,5 C11.881,5 13,7.619 13,9 L13,9.5 C13,10.71 12.141,11.718 11,11.949 L11,14 L10,14 Z" id="Fill-1-Copy" fill="#FFFFFF"></path>
+    </g>
+</svg>
