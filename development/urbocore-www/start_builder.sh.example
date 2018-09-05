@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Define the path where the vertical is located. This must be an absolute path.
+# If you wish to use a relative path you can use $PWD to reference your current path.
+PATH_TO_VERTICAL="/absolute/path/to/vertical"
+# PATH_TO_VERTICAL="$PWD/../urbo-formacion/students"
+
+# Define the vertical's name. This name will be used to identify your vertical and map it to directories.
+VERTICAL_NAME="my_vertical"
+# VERTICAL_NAME="students"
+
+# Start containers
+docker-compose run -d -p 8085:80 -v $PATH_TO_VERTICAL/www:/usr/share/nginx/html/src/src/verticals/$VERTICAL_NAME www
+docker-compose run -v $PATH_TO_VERTICAL/www:/usr/src/app/src/verticals/$VERTICAL_NAME www_builder
+docker-compose down
