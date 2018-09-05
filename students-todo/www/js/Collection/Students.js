@@ -35,7 +35,11 @@ App.Collection.Students.PanelList = Backbone.Collection.extend({
         title: __('Estado general'),
         url:base + '/dashboard',
       },
-      // TODO: Añadir enlace a panel Current
+      {
+        id : 'current',
+        title: __('Points of Interest'),
+        url:base + '/dashboard/current',
+      }
     ];
 
     this.set(_verticalOptions);    

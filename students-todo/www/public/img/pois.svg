@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/leyenda/pois</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons/leyenda/pois" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-24" transform="translate(2.000000, 3.000000)" fill="#00475D">
+            <g id="Page-1">
+                <path d="M3.48283929,-0.000232142857 L0.00185714286,3.48307143 L-0.000464285714,3.48307143 L-0.000464285714,5.22298214 L0.000696428571,5.22298214 L0.000696428571,6.96405357 L0.000696428571,18.5711964 L6.96614286,18.5711964 L6.96614286,6.96405357 L6.96614286,5.22298214 L6.96498214,5.22298214 L6.96498214,3.48307143 L6.96730357,3.48307143 L3.48283929,-0.000232142857 Z M1.16141071,6.96521429 L5.80542857,6.96521429 L5.80542857,4.64378571 L1.16141071,4.64378571 L1.16141071,6.96521429 Z" id="Fill-1"></path>
+                <polygon id="Fill-2" points="8.12627679 10.4461964 8.12627679 18.5711964 18.5727054 18.5711964 18.5727054 15.0902143 13.9286875 10.4461964"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

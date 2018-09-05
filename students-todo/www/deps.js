@@ -24,33 +24,35 @@
 // provided in both Spanish and international law. Telefónica Digital reserves any civil or
 // criminal actions it may exercise to protect its rights.
 
-/**
- * 1. Lista de paneles, para el selector de paneles.
- */
-App.Collection.Students.PanelList = Backbone.Collection.extend({
-  initialize: function(models,options) {
-    var base = '/' + options.scopeModel.get('id') + '/' + options.id_category;
-    var _verticalOptions = [{
-        id : 'master',
-        title: __('Estado general'),
-        url:base + '/dashboard',
-      },
-      // TODO: Añadir enlace a panel Current
-    ];
+var deps = {};
 
-    this.set(_verticalOptions);    
-  }
-});
+var src = 'src/verticals/students/';
+var srcJS = src + 'js/';
+var public = 'verticals/students/';
 
-/**
- * 2. Tipos de POIs, con sus id, sus nombres, colores e iconos.
- */
-App.Static.Collection.Students.POIsTypes =  new Backbone.Collection([
-  {id: 'pois', name: 'Points of Interest', color: '#58BC8F', icon: '/verticals/students/img/pois_negative.svg'},  
-  {id: 107, name: 'Landmarks', color: '#DB6CA2', icon: '/verticals/students/img/historic-shop-white.svg'},
-  {id: 29, name: 'Colleges and Universities', color: '#ACB35D', icon: '/verticals/students/img/reserved-white.svg'},  
-  {id: 311, name: 'Museums', color: '#857DC9', icon: '/verticals/students/img/museo-white.svg'},
-  {id: 371, name: 'Protected Area', color: '#98C16C', icon: '/verticals/students/img/reserved-white.svg'},
-  {id: 420, name: 'Itinerary', color: '#3081C9', icon: '/verticals/students/img/itinerary-white.svg'},
-  {id: 435, name: 'Hostels', color: '#E16464', icon: '/verticals/students/img/hostel-white.svg'},
-]);
+deps.templateFolder = [srcJS + 'template'];
+
+deps.JS = [
+  srcJS + 'Namespace.js',
+  srcJS + 'Metadata.js',
+  srcJS + 'Collection/Students.js',
+  srcJS + 'View/Filter/Students/PoiFilter.js',  
+  srcJS + 'View/Map/Students/ResidenceMapView.js',
+  srcJS + 'View/Map/Students/Layer/ResidencesLayer.js',
+  srcJS + 'View/Panels/Students/StudentsMasterPanelView.js',
+  srcJS + 'View/Panels/Students/StudentsCurrentPanelView.js',
+  srcJS + 'View/widgets/Students/DistanceToPOIS.js',
+  srcJS + 'View/widgets/Students/POIsByType.js',
+  srcJS + 'View/widgets/Students/POIsTable.js',
+];
+
+deps.lessFile = [ src + 'css/styles.less' ];
+
+deps.extraResources = [
+  { srcFolder: src + 'public/img', dstFolder: public + 'img', onDebugIgnore: false },
+  { srcFolder: src + 'public/mapstyle', dstFolder: public + 'mapstyle', onDebugIgnore: false }
+]
+
+if (typeof exports !== 'undefined') {
+  exports.deps = deps;
+}

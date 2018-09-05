@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/verticales/20px/turismo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons/verticales/20px/turismo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Page-1" transform="translate(6.000000, 1.000000)" fill="#FFFFFF">
+            <path d="M6,6 L2,6 C0.895,6 0,6.895 0,8 L0,14 C0,15.105 0.895,16 2,16 L6,16 C7.105,16 8,15.105 8,14 L8,8 C8,6.895 7.105,6 6,6 M6,7 C6.551,7 7,7.448 7,8 L7,14 C7,14.552 6.551,15 6,15 L2,15 C1.449,15 1,14.552 1,14 L1,8 C1,7.448 1.449,7 2,7 L6,7" id="Fill-1"></path>
+            <path d="M1.5,16 C0.948,16 0.5,16.447 0.5,17 C0.5,17.553 0.948,18 1.5,18 C2.052,18 2.5,17.553 2.5,17 C2.5,16.447 2.052,16 1.5,16" id="Fill-3"></path>
+            <path d="M6.5,16 C5.948,16 5.5,16.447 5.5,17 C5.5,17.553 5.948,18 6.5,18 C7.052,18 7.5,17.553 7.5,17 C7.5,16.447 7.052,16 6.5,16" id="Fill-5"></path>
+            <path d="M5.0005,0 L3.0005,0 C2.4485,0 2.0005,0.447 2.0005,1 L2.0005,7 C2.0005,7.553 2.4485,8 3.0005,8 L5.0005,8 C5.5525,8 6.0005,7.553 6.0005,7 L6.0005,1 C6.0005,0.447 5.5525,0 5.0005,0 Z M3.0005,6.5 L5.0005,6.5 L5.0005,1.5 L3.0005,1.5 L3.0005,6.5 Z" id="Fill-7"></path>
+            <polygon id="Fill-9" points="1 12 7 12 7 11 1 11"></polygon>
+            <polygon id="Fill-11" points="2 10 4 10 4 9 2 9"></polygon>
+        </g>
+    </g>
+</svg>
