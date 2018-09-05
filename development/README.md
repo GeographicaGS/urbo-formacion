@@ -32,7 +32,7 @@ Estos parámetros pueden cambiarse editando las variables existentes en `db/all.
 
 ### Pasos a seguir
 1. Descargamos el repositorio [urbo-pgsql-connector](https://github.com/GeographicaGS/urbo-pgsql-connector.git) y accedemos a la carpeta donde se haya guardado.
-2. Creamos un volumen Docker llamado `db-data` con el comando `docker volume create db-data`. En caso de querer cambiar el nombre habrá que adaptar la descripción de los volúmenes hecha en `docker-compose.yml`. En este volumen se persistirán los datos guardados en nuestra base de datos.
+2. Creamos un volumen Docker llamado `urbo-db-data` con el comando `docker volume create urbo-db-data`. En caso de querer cambiar el nombre habrá que adaptar la descripción de los volúmenes hecha en `docker-compose.yml`. En este volumen se persistirán los datos guardados en nuestra base de datos.
 3. (Opcional) Configuramos las distintas variables existentes en `db/all.sql` en caso de querer cambiar contraseñas o usuarios, se identifican por las instrucciones de `\set`.
 4. Ejecutamos el comando `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d postgis`
 5. Al hacer esto tendremos una copia de los contenidos del repositorio dentro de la capeta `/usr/src` del contenedor. Cualquier cambio que hagamos dentro de la carpeta del repositorio se trasladará al contenedor.
@@ -40,7 +40,7 @@ Estos parámetros pueden cambiarse editando las variables existentes en `db/all.
 
 ### Notas importantes
 - En la configuración de desarrollo este contenedor se mantiene a la espera de conexiones en `localhost:5435` o `172.17.0.1:5435`, esta configuración puede cambiarse editando el fichero `docker-compose.dev.yml`. Podemos conectarnos a ambas IPs gracias a que se ha configurado un mapeo de puertos.
-- Dado que tenemos creado el volumen `db-data` no es necesario repetir los pasos de generación de la estructura de tablas en el caso de que eliminemos el contenedor. En caso de querer realizar una instalación limpia desde 0 tendrá que eliminar dicho volumen mediante `docker volume rm db-data`.
+- Dado que tenemos creado el volumen `urbo-db-data` no es necesario repetir los pasos de generación de la estructura de tablas en el caso de que eliminemos el contenedor. En caso de querer realizar una instalación limpia desde 0 tendrá que eliminar dicho volumen mediante `docker volume rm urbo-db-data`.
 
 
 ## Urbo API
