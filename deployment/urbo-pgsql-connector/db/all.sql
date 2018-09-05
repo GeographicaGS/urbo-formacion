@@ -19,14 +19,19 @@
 -- For those usages not covered by this license please contact with
 -- iot_support at tid dot es
 --
+
+-- DATABASE PARAMETERS
 \set dbname urbo
 \set password urbo
 \set owner urbo_admin
-\set admin_pwd admin
 
+-- API LOGIN PARAMETERS
+\set admin_email 'admin@geographica.gs'
+\set admin_pwd 'admin'
+
+-- CREATE URBO ADMIN USER AND CONNECT TO THE NEW DATABASE
 \ir createdb.sql
 \c :dbname
 
-BEGIN;
+-- SET UP NECESSARY TABLES AND FUNCTIONS FOR URBO
 \ir createtables.sql
-COMMIT;

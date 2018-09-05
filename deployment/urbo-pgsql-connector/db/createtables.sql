@@ -25,9 +25,9 @@ CREATE EXTENSION intarray;
 \ir urbo_dump.sql
 
 INSERT INTO public.users
-(name,    surname,   email,                         password,           superadmin)
+(name,    surname,   email,               password,           superadmin)
 VALUES
-('admin', 'admin',   'admin@geographica.gs',        md5(:admin_pwd),       TRUE      );
+('admin', 'admin',   :'admin_email',        md5(:'admin_pwd'),    TRUE      );
 
 INSERT INTO public.users_graph
 (id,  name,   parent, read_users, write_users)
