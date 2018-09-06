@@ -1,0 +1,120 @@
+# FIWARE-PGSQL/CartoDB CONNECTOR CONFIGURATION FILE
+
+# BASE URL
+baseURL: http://urbo-formacion.geographica.gs/connector/lombardia/students
+
+# Logging parameters.
+logging:
+  # Options: ALL | TRACE | DEBUG | INFO | WARN | ERROR | FATAL | OFF. Default: INFO.
+  level: INFO
+  # Options: console | file | dailyRotatingFile | sizeRotatingFile. Default: console.
+  output: dailyRotatingFile
+  # Configure the log file.
+  file:
+    # Default: `./logs`
+    dir: /logs
+    # Default: `the_log`.
+    name: urbo-lombardia-students-connector
+    # File size in MB for `sizeRotatingFile` log type. Default: 20 MB.
+    maxSize: 20
+    # Number of old files to keep for `sizeRotatingFile` log type. Default: 5.
+    oldFiles: 5
+    # Boolean. If true, it'll create a separate file for errors. Default: false.
+    separateError: true
+  # Configure the access log. If its level is inferior than the main level it won't be logged.
+  # Documentaiton: https://github.com/nomiddlename/log4js-node/wiki/Connect-Logger
+  access:
+    # Options: Same as the main level. Default: The one used in the main level.
+    level: INFO
+    # Optional. For using log4js default format: false.
+    format: :remote-addr - ":method :url HTTP/:http-version" :status :res[content-length] :response-time ":user-agent"
+    # Optional array: each element it's like a regex. Default: empty.
+    nolog:
+      - ^/subscriptions/transport_vehicle
+
+# PostgreSQL configuration parameters
+pgsql:
+  host: 172.17.0.1
+  user: urbo_admin
+  password: urbo
+  database: urbo
+  port: 5432
+
+# CartoDB configuration parameters
+cartodb:
+  apiKey: bf806209e3311b656257183fefe1f940df42882e
+  user: robgc-geo
+  active: true
+  enterprise: false
+
+# urbo-processing parameters
+processing:
+  active: true
+  url: http://172.17.0.1:3010/job
+  requestAttempts: 5
+  psqlJob: connectorPsql
+  cartoJob: connectorCarto
+  jobAttempts: 3
+  priority: critical
+
+# Orion Context Broker API URLs
+contextBrokerUrls:
+  portCtxApi: 1026
+  urlCtxBrBase: http://172.17.0.1
+
+# Configuration for recreating (delete and create) subscriptions.
+# Optional. Options: global|single|none. Default: none.
+# Note: When 'single' is set, each subscription can have a 'recreateSubscription' boolean attribute.
+recreateSubscriptions: global
+
+# It looks like that with last versions of Orion we can receive repeated
+# attributes in the `contextResponses`. Setting `manageRepeatedAttributes` to
+# `true` deals with that, using only the first appearance.
+# Default value: `false`.
+manageRepeatedAttributes: false
+
+# Fiware subservices catalog.
+subservices:
+  - id: students
+    service: tourism
+    subservice: /lombardia
+
+# List of subscriptions
+subscriptions:
+  - id: students_pointofinterest_lastdata
+    subservice_id: students
+    schemaname: lombardia
+    subsduration: P8M
+    substhrottling: PT0S
+    fetchDataOnCreated: true
+    recreateSubscription: true
+    entityTypes:
+      - typeName: PointOfInterest
+    mode: update
+    attributes:
+      - name: address
+        type: json
+        cartodb: true
+      - name: category
+        type: integer
+        cartodb: true
+      - name: name
+        type: string
+        cartodb: true
+      - name: description
+        type: string
+        cartodb: true
+      - name: location
+        namedb: position
+        type: geojson-point
+        cartodb: true
+      - name: dateModified
+        namedb: TimeInstant
+        type: ISO8601
+        cartodb: true
+      - name: refSeeAlso
+        nabedb: refseealso
+        type: list-string
+        cartodb: true
+    trigger_attributes:
+      - dateModified
