@@ -1,0 +1,23 @@
+redis_processing:
+  container_name: urbo_redis_processing
+  image: redis:latest
+  ports:
+    - "6380:6379"
+  volumes:
+    - ./redis.conf:/usr/local/etc/redis/redis.conf
+  command: redis-server /usr/local/etc/redis/redis.conf
+
+processing:
+  container_name: urbo_processing
+  build: .
+  dockerfile: Dockerfile
+  ports:
+    - "3010:3000"
+    - "8080:8080"
+  # links:
+    # - postgis:postgis
+    # - redis_processing:redis
+  volumes:
+    - /usr/src/app/node_modules
+    - ./:/usr/src/app
+  # command: npm run-script start-dev # Livereload mode

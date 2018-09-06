@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  postgis:
+    ports:
+      - "5435:5432"
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3005:3000"
+      - "9229:9229"
+      # Old debugging ports, with 9229 we don't need those
+      # 9229 can be used for chromium-based web debuggers and IDEs/editors
+      # - "8080:8080"
+      # - "5858:5858"
+    volumes:
+      - modules:/usr/src/app/node_modules
+      - ./api:/usr/src/app
+    command: node --inspect --debug-brk ./bin/www
+
+    # Old debugging command
+    # command: npm run-script debug
+    # ... then go to  http://127.0.0.1:8080/?port=5858
+
+    #Standard mode:
+    #command: npm run-script start
+
+    #Nodemon Mode
+    # command: nodemon -L
+
+volumes:
+  modules:

@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  postgis:
+    container_name: urbo_db
+    image: geographica/postgis:breezy_badger
+    volumes:
+      - ./:/usr/src
+      - urbo-db-data:/data
+    network_mode: bridge
+    restart: always
+
+  api:
+    container_name: urbo_connector
+    build:
+      context: api
+    network_mode: bridge
+
+volumes:
+  urbo-db-data:
+    external: true

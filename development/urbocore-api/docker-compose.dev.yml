@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  postgis:
+    ports:
+      - "5435:5432"
+
+  api:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.dev
+    volumes:
+      - modules:/usr/src/app/node_modules/
+      - ./:/usr/src/app
+      # Copy your verticals inside the repo or mount a volume for each one
+#     - /path/to/vertical/api:/usr/src/app/verticals/my_vertical_name
+    ports:
+      - "3005:3000"
+      - "9229:9229"
+      # Old debugging ports, with 9229 we don't need those
+      # 9229 can be used for chromium-based web debuggers and IDEs/editors
+      # - "8080:8080"
+      # - "5858:5858"
+    command: node --inspect --debug-brk ./bin/www
+    # Old debugging command
+    # command: npm run-script debug
+
+volumes:
+  modules:
